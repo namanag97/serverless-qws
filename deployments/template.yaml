@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Go Lambda function for transcription
+
+Resources:
+  TranscriptionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../  # Point to the project root
+      Handler: bootstrap  # For Go functions, this should match the binary name
+      Runtime: go1.x
+      Architectures:
+        - x86_64
+    Metadata:
+      BuildMethod: go1.x
